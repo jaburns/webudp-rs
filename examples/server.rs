@@ -1,4 +1,4 @@
-use webudp_sys::{WuEvent, WuHost, WuServeTimeout};
+use webudp_rs::{WuEvent, WuHost, WuServeTimeout};
 
 fn main() {
     let mut host = WuHost::create("127.0.0.1", "9555", 256);
@@ -24,5 +24,6 @@ fn main() {
                 }
             }
         }
+        std::thread::sleep_ms(10);
     }
 }
