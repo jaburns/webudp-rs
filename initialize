@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 git submodule update --init --recursive
-cd webudp_sys/WebUDP
+cd WebUDP
 rm -rf build
 mkdir build
 cd build

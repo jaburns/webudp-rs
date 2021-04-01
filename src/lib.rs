@@ -2,10 +2,11 @@ mod bindings {
     #![allow(non_upper_case_globals)]
     #![allow(non_camel_case_types)]
     #![allow(non_snake_case)]
+    #![allow(unused)]
     include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
 }
 
-use std::collections::HashMap;
+use std::{collections::HashMap, fmt::Display};
 use std::{ffi::CString, ptr::null, ptr::null_mut};
 
 pub enum WuServeTimeout {
@@ -24,6 +25,11 @@ pub struct WuHost {
 
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
 pub struct WuClient(u32);
+impl Display for WuClient {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, "WuClient({})", self.0)
+    }
+}
 
 #[derive(Clone, Debug)]
 pub enum WuEvent {
