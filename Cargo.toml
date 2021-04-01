@@ -1,5 +1,5 @@
 [package]
-name = "webudp_sys"
+name = "webudp-rs"
 version = "0.1.0"
 edition = "2018"
 
@@ -8,3 +8,4 @@ crate-type = ["cdylib", "rlib"]
 
 [build-dependencies]
 bindgen = "0.53.1"
+cmake = "0.1.45"
