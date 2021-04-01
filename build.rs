@@ -14,7 +14,6 @@ fn main() {
     println!("cargo:rustc-link-lib=ssl");
     println!("cargo:rustc-link-lib=crypto");
     println!("cargo:rerun-if-changed=wrapper.h");
-    println!("cargo:rerun-if-changed=build.rs");
 
     let bindings = bindgen::Builder::default()
         .header("wrapper.h")
