@@ -47,7 +47,7 @@ export class WuSocket {
                 const request = new XMLHttpRequest();
                 request.open("POST", address);
                 request.onload = () => {
-                    if (request.status == 200) {
+                    if (request.status === 200) {
                         resolve(JSON.parse(request.responseText));
                     } else {
                         reject();
