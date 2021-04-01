@@ -1,0 +1,3 @@
+[submodule "WebUDP"]
+	path = WebUDP
+	url = git@github.com:seemk/WebUDP
