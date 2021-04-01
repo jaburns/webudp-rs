@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebUDP-rs</title>
+</head>
+<body>
+</body>
+<script type="module">
+
+    import { WuSocket } from './WuSocket.js';
+
+    const ADDRESS = window.location.protocol + '//' + window.location.hostname + ':9555';
+
+    let packetNumber = 0;
+    const tick = () => {
+        socket.send('packet-' + packetNumber);
+        packetNumber++;
+    };
+
+    const socket = new WuSocket();
+    socket.onopen = () => setInterval(tick, 100);
+    socket.onmessage = evt => document.body.innerText = 'Receive text: ' + evt.data.toString() + '\n' + document.body.innerText;
+    socket.connect(ADDRESS);
+
+</script>
+</html>

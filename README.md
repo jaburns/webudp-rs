@@ -3,9 +3,10 @@
 A simple Rust wrapper around [WebUDP](https://github.com/seemk/WebUDP)
 
 ```
+sudo apt install cmake llvm-dev libclang-dev clang libssl-dev
 ./initialize
-cargo run --example echo_server &
+cargo run --example server &
 cd examples
-python -m SimpleHTTPServer 8080 &
-xdg-open http://localhost:8080/echo_server.html
+python3 -m http.server 8080 &
+xdg-open http://localhost:8080/
 ```

@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>WebUDP-rs</title>
-</head>
-<body>
-</body>
-<script>
-
-class WuSocket {
+export class WuSocket {
     constructor() {
         this.channel = null;
         this.onmessage = null;
@@ -83,28 +74,3 @@ class WuSocket {
         this.channel.close();
     }
 }
-
-const main = () => {
-    const PORT = 9555;
-
-    const socket = new WuSocket();
-
-    let packetNumber = 0;
-    const tick = () => {
-        socket.send("packet-" + packetNumber);
-        packetNumber++;
-    };
-
-    socket.onopen = () =>
-        setInterval(tick, 100);
-
-    socket.onmessage = evt =>
-        console.log("received:", evt.data);
-
-    socket.connect(window.location.protocol + "//" + window.location.hostname + ":" + PORT);
-};
-
-main();
-
-</script>
-</html>
