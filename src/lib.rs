@@ -23,8 +23,9 @@ pub struct WuHost {
     client_id_counter: u32,
 }
 
-#[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
+#[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd, Hash)]
 pub struct WuClient(u32);
+
 impl Display for WuClient {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(f, "WuClient({})", self.0)
