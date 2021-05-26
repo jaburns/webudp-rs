@@ -6,6 +6,6 @@ edition = "2018"
 [lib]
 crate-type = ["cdylib", "rlib"]
 
-[build-dependencies]
+[target.'cfg(not(windows))'.build-dependencies]
 bindgen = "0.53.1"
 cmake = "0.1.45"
