@@ -25,11 +25,13 @@ fn main() {
 
 #[cfg(windows)]
 fn main() {
-    let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
-    let lib_path = out_path.join("build");
+    let this_path = PathBuf::from(env::var("CARGO_MANIFEST_DIR").unwrap());
 
-    println!("cargo:rustc-link-search=win64lib");
-    println!("cargo:rustc-link-search=C;/Program Files/OpenSSL-Win64/lib");
+    println!(
+        "cargo:rustc-link-search={}",
+        this_path.join("win64lib").display()
+    );
+    println!("cargo:rustc-link-search=C:/Program Files/OpenSSL-Win64/lib");
     println!("cargo:rustc-link-lib=WuHost");
     println!("cargo:rustc-link-lib=Wu");
     println!("cargo:rustc-link-lib=libssl");
