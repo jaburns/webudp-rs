@@ -19,7 +19,7 @@ xdg-open http://localhost:8080/examples
 cargo run --example server
 ````
 
-#### Updating Windows binaries
+### Updating Windows binaries
 
 On Linux everything is built from source, and `bindings.rs` is generated from the C headers. On Windows, WebUDP is included as
 pre-compiled binaries, and the latest `bindings.rs` is used without generating a new one. This is why `bindings.rs` is included
